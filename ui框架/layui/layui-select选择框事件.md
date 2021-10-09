@@ -15,13 +15,12 @@ created_at:2021/10/9
 ## layui-js写法
 
 ```js
-  <select lay-filter="test"></select>
+  <select lay-filter="selectType"></select>
       
   //js    
   layui.use(['form', 'layedit', 'laydate'], function () {
         var form = layui.form # 引入form表单
-
-        form.on('select(selectType)', function (data) {
+         form.on('select(selectType)', function (data) {
          console.log(data.elem); //得到select原始DOM对象
 	     console.log(data.value); //得到被选中的值
 	     console.log(data.othis); //得到美化后的DOM对象
