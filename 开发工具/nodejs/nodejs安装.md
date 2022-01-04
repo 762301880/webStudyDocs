@@ -6,6 +6,7 @@
 
 1.1点击下载
 建议使用[中文网](http://nodejs.cn/)下载,`官网`很慢
+
 <img src='https://yaoliuyang-blog-images.oss-cn-beijing.aliyuncs.com/blogImages/1922055-20200407103647093-1112755166.png' width='600px' heigth='400px' title='点击下载'> 
 
 1.2下载你需要的安装包或者软件：
