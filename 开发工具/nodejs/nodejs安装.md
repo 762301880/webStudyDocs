@@ -2,6 +2,8 @@
 
 ## windows安装
 
+###  exe安装
+
 首先打开官网：[官网](https://nodejs.org/zh-cn/)
 
 > 建议使用[中文网](http://nodejs.cn/)下载,`官网`很慢 
@@ -16,6 +18,18 @@
 一路next安装：
 
 <img src='https://yaoliuyang-blog-images.oss-cn-beijing.aliyuncs.com/blogImages/1922055-20200407104123954-714053076.png' width='400px' heigth='200px' title='点击下载'> 
+
+###  二进制包安装
+
+> 下载二进制包放到需要的目录
+
+![image-20230522093926643](https://yaoliuyang-blog-images.oss-cn-beijing.aliyuncs.com/blogImages/image-20230522093926643.png)
+
+> 配置环境变量**解压目录**
+
+![image-20230522094016551](https://yaoliuyang-blog-images.oss-cn-beijing.aliyuncs.com/blogImages/image-20230522094016551.png)
+
+### 查看是否安装成功
 
 win+r输入cmd打开命令提示工具：输入命令查看是否安装成功
 
@@ -43,4 +57,41 @@ npm config set registry https://registry.npm.taobao.org
 ```javascript
 npm install -g cnpm --registry=https://registry.npm.taobao.org
 ```
+
+# 安装yarn
+
+## yarn介绍
+
+> Yarn 是一个快速、可靠、安全的依赖包管理工具，可用于替代 NPM。使用 Yarn 可以更快地安装依赖项，同时减少安装过程中的错误和运行时问题。以下是 Yarn 的一些关键特性：
+>
+> 1. 快速：由于其高效的算法，Yarn 可以快速安装依赖项，大大缩短了构建时间。
+>
+> 2. 稳定：Yarn 确保所有依赖项的版本和树形结构都得到良好管理，并使用锁文件确保版本的一致性，从而减少了运行时错误和不一致性。
+>
+> 3. 安全：通过使用公钥签名和哈希值来检查包的完整性和安全性，Yarn 保证依赖项的安全性。
+>
+> 4. 可定制：Yarn 支持自定义命令和配置，以满足特定项目的需求。
+>
+> 总之，Yarn 是一个非常强大的包管理器，可用于优化 JavaScript 应用程序的构建和依赖项管理。
+
+## 安装
+
+> 在安装yarn之前，你需要先安装Node.js。你可以通过以下步骤在 Node.js 上安装 yarn：
+>
+> 1. 首先，你需要下载并安装 Node.js，可以从官网 https://nodejs.org/en/download/ 下载安装包并进行安装。
+> 2. 安装了 Node.js 之后，可以使用你的终端或命令提示符运行以下命令安装 Yarn：
+
+```shell
+#这将全局安装 Yarn，并使其可用于所有项目。
+
+npm install -g yarn
+```
+
+验证 Yarn 是否已正确安装。在终端或命令提示符中输入以下命令：
+
+```shell
+yarn --version
+```
+
+
 
