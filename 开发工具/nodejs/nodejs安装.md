@@ -95,3 +95,22 @@ yarn --version
 
 
 
+
+
+# bug解析
+
+## npm install -g npm升级npm报错无法加载文件 D:\Program Files\node-v18.16.1-win-x64\npm.ps1
+
+> PS D:\web_work\order-meal-mini-program> npm install -g npm
+> npm : 无法加载文件 D:\Program Files\node-v18.16.1-win-x64\npm.ps1，因为在此系统上禁止运行脚本。有关详细信息，请参阅 htt
+> ps:/go.microsoft.com/fwlink/?LinkID=135170 中的 about_Execution_Policies。
+> 所在位置 行:1 字符: 1
+
+**解决方案**
+
+> 搜索[powerShell](https://so.csdn.net/so/search?q=powerShell&spm=1001.2101.3001.7020)，然后右键以管理员身份运行,以管理员运行后，弹出命令窗口
+>
+> 在窗口上执行：`set-ExecutionPolicy RemoteSigned`，然后输入Y，按回车确认
+
+![image-20230629141614507](https://yaoliuyang-blog-images.oss-cn-beijing.aliyuncs.com/blogImages/image-20230629141614507.png)
+
