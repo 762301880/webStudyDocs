@@ -116,3 +116,14 @@ yarn --version
 
 ![image-20230629141614507](https://yaoliuyang-blog-images.oss-cn-beijing.aliyuncs.com/blogImages/image-20230629141614507.png)
 
+# 扩展
+
+## nvm安装多个不同node版本
+
+**资料**
+
+| 名称       | 地址                                                         |
+| ---------- | ------------------------------------------------------------ |
+| 网络博客   | [link](https://cloud.tencent.com/developer/article/2186393?areaSource=102001.11&traceId=iFAgcnr6VOQ0mtNw6ZeIh) |
+| nvm_github | [link](https://github.com/coreybutler/nvm-windows)           |
+
