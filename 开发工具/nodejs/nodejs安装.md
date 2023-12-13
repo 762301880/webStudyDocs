@@ -2,7 +2,7 @@
 
 ## windows安装
 
-###  exe安装
+###  exe安装(不推荐)
 
 首先打开官网：[官网](https://nodejs.org/zh-cn/)
 
@@ -19,7 +19,7 @@
 
 <img src='https://yaoliuyang-blog-images.oss-cn-beijing.aliyuncs.com/blogImages/1922055-20200407104123954-714053076.png' width='400px' heigth='200px' title='点击下载'> 
 
-###  二进制包安装
+###  二进制包安装(推荐)
 
 > 下载二进制包放到需要的目录
 
@@ -48,6 +48,8 @@ node --version
 npm config get registry
 ```
 ## 这里我们设置淘宝的镜像：
+
+> https://npmmirror.com/
 
 ```javascript
 npm config set registry https://registry.npm.taobao.org
