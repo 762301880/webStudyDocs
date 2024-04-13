@@ -8,26 +8,26 @@
 
 > 建议使用[中文网](http://nodejs.cn/)下载,`官网`很慢 
 
-<img src='https://yaoliuyang-blog-images.oss-cn-beijing.aliyuncs.com/blogImages/1922055-20200407103647093-1112755166.png' width='600px' heigth='400px' title='点击下载'> 
+<img src='https://gitee.com/yaolliuyang/blogImages/raw/master/blogImages/1922055-20200407103647093-1112755166.png' width='600px' heigth='400px' title='点击下载'> 
 
 下载你需要的安装包或者软件：
 
 因为我的电脑时windows1064位的所以我选择了对应的版本
-<img src='https://yaoliuyang-blog-images.oss-cn-beijing.aliyuncs.com/blogImages/1922055-20200407103931031-1694730258.png' width='600px' heigth='400px' title='点击下载'> 
+<img src='https://gitee.com/yaolliuyang/blogImages/raw/master/blogImages/1922055-20200407103931031-1694730258.png' width='600px' heigth='400px' title='点击下载'> 
 
 一路next安装：
 
-<img src='https://yaoliuyang-blog-images.oss-cn-beijing.aliyuncs.com/blogImages/1922055-20200407104123954-714053076.png' width='400px' heigth='200px' title='点击下载'> 
+<img src='https://gitee.com/yaolliuyang/blogImages/raw/master/blogImages/1922055-20200407104123954-714053076.png' width='400px' heigth='200px' title='点击下载'> 
 
 ###  二进制包安装(推荐)
 
 > 下载二进制包放到需要的目录
 
-![image-20230522093926643](https://yaoliuyang-blog-images.oss-cn-beijing.aliyuncs.com/blogImages/image-20230522093926643.png)
+![image-20230522093926643](https://gitee.com/yaolliuyang/blogImages/raw/master/blogImages/image-20230522093926643.png)
 
 > 配置环境变量**解压目录**
 
-![image-20230522094016551](https://yaoliuyang-blog-images.oss-cn-beijing.aliyuncs.com/blogImages/image-20230522094016551.png)
+![image-20230522094016551](https://gitee.com/yaolliuyang/blogImages/raw/master/blogImages/image-20230522094016551.png)
 
 ### 查看是否安装成功
 
@@ -36,7 +36,7 @@ win+r输入cmd打开命令提示工具：输入命令查看是否安装成功
 ```javascript
 node --version
 ```
-<img src='https://yaoliuyang-blog-images.oss-cn-beijing.aliyuncs.com/blogImages/1922055-20200407104527615-867249171.png' width='400px' heigth='200px' title='点击下载'> 
+<img src='https://gitee.com/yaolliuyang/blogImages/raw/master/blogImages/1922055-20200407104527615-867249171.png' width='400px' heigth='200px' title='点击下载'> 
 
 推荐一个nodejs的[学习网站](http://nqdeng.github.io/7-days-nodejs/)
 
@@ -114,7 +114,7 @@ yarn --version
 >
 > 在窗口上执行：`set-ExecutionPolicy RemoteSigned`，然后输入Y，按回车确认
 
-![image-20230629141614507](https://yaoliuyang-blog-images.oss-cn-beijing.aliyuncs.com/blogImages/image-20230629141614507.png)
+![image-20230629141614507](https://gitee.com/yaolliuyang/blogImages/raw/master/blogImages/image-20230629141614507.png)
 
 # 扩展
 
