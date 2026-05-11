@@ -1,17 +1,18 @@
 ## 资料
 
-| 名称          | 地址                                                         |
-| ------------- | ------------------------------------------------------------ |
-| elementui官网 | [vue2.x](https://element.eleme.cn/#/zh-CN)    [vue3.x](https://element-plus.org/zh-CN/) |
+| 名称                  | 地址                                                         |
+| --------------------- | ------------------------------------------------------------ |
+| elementui官网   vue2  | [vue2.x](https://element.eleme.cn/#/zh-CN)                   |
+| elementui官网    vue3 | [vue3.x](https://element-plus.org/zh-CN/)  [install](https://element-plus.org/zh-CN/guide/installation) |
 
 ## [安装](https://element.eleme.cn/#/zh-CN/component/installation)
 
-### npm 安装
+### npm 安装 支持vue2
 
 推荐使用 npm 的方式安装，它能更好地和 [webpack](https://webpack.js.org/) 打包工具配合使用。
 
 ```shell
-npm i element-ui -S
+npm i element-ui -S    # 默认支持vue2不支持vue3
 ```
 
 ### 命令解释
@@ -72,3 +73,11 @@ npm install element-ui
 - `npm i element-ui` = 安装 Element UI
 - `-S` = 保存为**生产依赖**（新版 npm 可省略）
 - 日常开发直接用：`npm i element-ui` 即可
+
+### npm 安装 支持vue3
+
+```shell
+# vue3
+npm install element-plus --save
+```
+
