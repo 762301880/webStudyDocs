@@ -209,14 +209,16 @@ npm config get registry
 ## 这里我们设置淘宝的镜像：
 
 > https://npmmirror.com/
+>
+> [阿里巴巴开源镜像站](https://developer.aliyun.com/mirror/)
 
 ```javascript
-npm config set registry https://registry.npm.taobao.org
+npm config set registry http://registry.npmmirror.com
 ```
 ## 安装淘宝的镜像源：
 
 ```javascript
-npm install -g cnpm --registry=https://registry.npm.taobao.org
+npm install -g cnpm --registry=http://registry.npmmirror.com
 ```
 
 # 安装yarn
