@@ -174,7 +174,7 @@ http://localhost:3000
 
    
 
-2. 用 ** 网址（http/https）** 访问
+2. 用** 网址（http/https）**访问
 
    
 
@@ -186,3 +186,113 @@ http://localhost:3000
 
 ✅ **正确**：用服务器打开（serve / 线上网址）→ 正常显示
 
+##  疑问补充
+
+###  npm create  vue@latest   或者  vite@latest 区别
+
+一句话：
+
+- `npm create vue@latest`：**Vue 官方专用脚手架**，只做 Vue，帮你把 Router/Pinia/ESLint 等都配置好。
+- `npm create vite@latest`：**Vite 通用脚手架**，可建 Vue/React/ 原生 JS 等，Vue 模板是最简裸配置。
+
+#### 本质不同：谁提供、干什么
+
+##### npm create vue@latest
+
+- 实际调用：**create-vue**（Vue 官方包）
+- 定位：**只生成 Vue 3 项目**的专用脚手架
+- 底层：**内部就是基于 Vite**，不用你再选构建工具
+
+运行后会交互式问你：
+
+- 项目名
+- 是否用 TypeScript
+- 是否加 JSX
+- 是否加 Vue Router
+- 是否加 Pinia（状态管理）
+- 是否加 ESLint + Prettier
+- 是否加单元测试等
+
+👉 结果：**开箱即用、配置完整的 Vue 3 工程**，企业级规范直接给你配好。
+
+##### npm create vite@latest
+
+- 实际调用：**create-vite**（Vite 官方包）
+
+- 定位：
+
+  通用前端脚手架
+
+  ，可生成：
+
+  - 原生 JS（vanilla）
+  - Vue / Vue-ts
+  - React / React-ts
+  - Preact、Svelte 等
+
+- 底层：**Vite 本身**
+
+要手动选模板：
+
+```shell
+✔ Select a framework: › Vue
+✔ Select a variant: › JavaScript / TypeScript
+```
+
+👉 结果：**最精简的 Vue + Vite 裸项目**，只有：
+
+- vite.config.ts
+
+- App.vue、main.ts
+
+- 基本 index.html
+
+  
+
+  没有 Router、没有 Pinia、没有 ESLint，全都要自己后续安装配置。
+
+####  生成的项目差异（Vue 场景对比）
+
+##### 用 `create-vue`（vue@latest）
+
+- ✅ 内置 Vite（不用自己配）
+- ✅ 可选：Router + Pinia 自动配置好
+- ✅ 可选：ESLint + Prettier 配置好
+- ✅ 可选：单元测试（Vitest）配置好
+- ✅ tsconfig、env 等都按 Vue 最佳实践配置好
+- 适合：**正式项目、中大型项目、不想折腾配置**
+
+##### 用 `create-vite`（vite@latest → 选 Vue）
+
+- ✅ 内置 Vite
+- ❌ **无 Router、无 Pinia**，需手动 `npm install vue-router pinia` 并配置
+- ❌ **无 ESLint/Prettier**，需自己装插件、写配置
+- ❌ 无测试框架
+- 配置极少，自由度高
+- 适合：**练手、小 Demo、想从零搭 Vue + Vite**
+
+#### 怎么选（简单结论）
+
+- 要正经写 Vue 项目、想少配多写：
+
+  ```bash
+  npm create vue@latest
+  ```
+
+（官方推荐，Vue 专属，配置齐全）
+
+要**快速搭一个极简 Vue demo / 或想自己全套配置**：
+
+```bash
+npm create vite@latest
+# 然后选 Vue
+```
+
+你要**用 React / Svelte / 原生 JS**：
+
+只能用 `create-vite`。
+
+####  记忆口诀
+
+- `create vue` = **Vue 全家桶，开箱即用**
+- `create vite` = **通用裸模板，自己拼装**
