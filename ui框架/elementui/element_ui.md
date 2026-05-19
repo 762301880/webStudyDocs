@@ -1,9 +1,9 @@
 ## 资料
 
-| 名称                  | 地址                                                         |
-| --------------------- | ------------------------------------------------------------ |
-| elementui官网   vue2  | [vue2.x](https://element.eleme.cn/#/zh-CN)                   |
-| elementui官网    vue3 | [vue3.x](https://element-plus.org/zh-CN/)  [install](https://element-plus.org/zh-CN/guide/installation) |
+| 名称                 | 地址                                                         |
+| -------------------- | ------------------------------------------------------------ |
+| elementui官网   vue2 | [vue2.x](https://element.eleme.cn/#/zh-CN)                   |
+| element-plus    vue3 | [vue3.x](https://element-plus.org/zh-CN/)  [install](https://element-plus.org/zh-CN/guide/installation)  [看这个-组件](https://element-plus.org/zh-CN/component/form) |
 
 ## [安装](https://element.eleme.cn/#/zh-CN/component/installation)
 
