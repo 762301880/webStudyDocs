@@ -1,6 +1,8 @@
 ## [逻辑示例](https://www.runoob.com/try/try.php?filename=vue3-bc)
 
 > 快捷键创建div  `div#hello-vue.demo` 
+>
+> [资料参考](https://www.runoob.com/vue3/vue3-syntax.html)
 
 ```html
 <!doctype html>
@@ -171,7 +173,7 @@ Vue 拿到了：
 
 就能找到这个变量。
 
-### 最后一行
+### [最后一行](https://www.runoob.com/vue3/vue3-syntax.html)
 
 ```javascript
 Vue.createApp(HelloVueApp).mount('#hello-vue')
