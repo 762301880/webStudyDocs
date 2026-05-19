@@ -7,7 +7,7 @@
 
 ## [安装](https://element.eleme.cn/#/zh-CN/component/installation)
 
-### npm 安装 支持vue2
+### npm 安装 支持vue2(不推荐已过时)
 
 推荐使用 npm 的方式安装，它能更好地和 [webpack](https://webpack.js.org/) 打包工具配合使用。
 
@@ -74,7 +74,7 @@ npm install element-ui
 - `-S` = 保存为**生产依赖**（新版 npm 可省略）
 - 日常开发直接用：`npm i element-ui` 即可
 
-### npm 安装 支持vue3
+### npm 安装 支持vue3(推荐安装plus版本)
 
 ```shell
 # vue3
