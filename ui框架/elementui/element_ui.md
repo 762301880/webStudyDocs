@@ -19,7 +19,7 @@ npm i element-ui -S    # 默认支持vue2不支持vue3
 
  **`npm i element-ui -S`**
 
-> `npm`：Node 包管理工具（安装依赖必备）
+> `npm`：Node 包管理工具（安装依赖必备）推荐pnpm
 >
 > `i`：是 `install` 的**简写**，意思就是「安装」
 >
@@ -47,7 +47,7 @@ npm i element-ui -S    # 默认支持vue2不支持vue3
 
 **完整等价命令**
 
-下面这 3 条命令**效果完全一样**：
+下面这 3 条命令**效果完全一样**：(推荐pnpm)
 
 ```shell
 npm i element-ui -S

@@ -3,6 +3,7 @@
 | 名称              | 地址                                                         |
 | ----------------- | ------------------------------------------------------------ |
 | 菜鸟教程-ES6 教程 | [菜鸟教程-ES6 教程](https://www.runoob.com/w3cnote/es6-tutorial.html) |
+| 网道              | [link](https://wangdoc.com/es6/intro)                        |
 
 
 

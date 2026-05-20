@@ -229,7 +229,7 @@ my-vue-app/
 
 #### 本质不同：谁提供、干什么
 
-##### npm create vue@latest
+##### npm create vue@latest(不推荐)
 
 - 实际调用：**create-vue**（Vue 官方包）
 - 定位：**只生成 Vue 3 项目**的专用脚手架
@@ -247,7 +247,7 @@ my-vue-app/
 
 👉 结果：**开箱即用、配置完整的 Vue 3 工程**，企业级规范直接给你配好。
 
-##### npm create vite@latest
+##### npm create vite@latest(推荐)
 
 - 实际调用：**create-vite**（Vite 官方包）
 

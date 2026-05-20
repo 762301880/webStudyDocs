@@ -6,6 +6,8 @@
 
 它的官方定义是：**一个基于 Chrome V8 引擎的 JavaScript 运行时环境**。
 
+类比相当于 python本身 不是 pip
+
 用大白话解释：
 
 - JavaScript 原本只能在浏览器里跑（比如网页的交互、表单验证），Node.js 把浏览器里执行 JS 的核心引擎（V8）抽出来，让 JS 可以脱离浏览器，直接在你的电脑（服务器）上运行。
@@ -141,7 +143,7 @@ npm install
 
 就能自动下载所有需要的包，直接运行项目。
 
-## 五、和 npm 类似的工具
+## 五、和 npm 类似的工具(推荐安装pnpm)
 
 npm 是默认的，还有两个常用替代品：
 
@@ -221,7 +223,7 @@ npm config set registry http://registry.npmmirror.com
 npm install -g cnpm --registry=http://registry.npmmirror.com
 ```
 
-# 安装yarn
+# 安装yarn(不推荐请用pnpm)
 
 ## yarn介绍
 
