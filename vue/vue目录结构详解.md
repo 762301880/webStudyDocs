@@ -2,6 +2,8 @@
 
 所谓目录结构就是一个脚手架
 
+https://www.runoob.com/vue3/vue3-directory-structure.html
+
 ## 目录结构
 
 ```bash
