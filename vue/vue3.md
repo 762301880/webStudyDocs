@@ -1,6 +1,6 @@
 ## [vue3文档](https://cn.vuejs.org/guide/essentials/application.html)
 
-##  [创建一个vue3项目](https://cn.vuejs.org/guide/quick-start.html)
+##  [创建一个vue3项目](https://cn.vuejs.org/guide/quick-start.html)(不推荐)
 
 ```shell
 PS D:\Desktop> npm create vue@latest
