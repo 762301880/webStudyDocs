@@ -328,3 +328,66 @@ npm create vite@latest
 
 - `create vue` = **Vue 全家桶，开箱即用**
 - `create vite` = **通用裸模板，自己拼装**
+
+## 写vue固定结构
+
+所有 `.vue` 文件，**99% 都是这 3 块**：**官方默认**的 **Vue 3 + `<script setup>`** 写法
+
+```html
+<!-- 1. 模板：写 HTML -->
+<template>
+  这里写 HTML、div、span、el-button 等
+</template>
+
+<!-- 2. 脚本：写 JS/TS 逻辑 -->
+<script setup>
+  这里写数据、方法、import
+</script>
+
+<!-- 3. 样式：写 CSS -->
+<style>
+  这里写样式
+</style>
+```
+
+###  3 个部分分别干嘛？
+
+### 1. `<template>`
+
+- 写 **HTML 结构**
+- 支持 `v-if` `v-for` `v-model` 等 Vue 指令
+- 只能有 **一个根标签**（推荐用 `<div>` 或 `<template>` 包起来）
+
+### 2. `<script setup>`
+
+- 写 **JS 逻辑**
+- 定义变量、函数、引入组件
+- **Vue3 最常用、最简单的写法**
+
+### 3. `<style>`
+
+- 写 CSS
+- 一般会加 `scoped` 表示样式只在当前组件生效（不会污染全局）
+
+```vue
+<style scoped>
+/* 只作用于当前组件 */
+</style>
+```
+
+### 所有 Vue 项目都这样吗？
+
+✅ **是的，全部都这样！**
+
+不管是：
+
+- Vite 创建的
+- Vue CLI 创建的
+- 公司项目
+- 开源项目
+- Element Plus + Vue 项目
+
+**全部都是 模板 + 脚本 + 样式 三段式结构**。
+
+
+
