@@ -8,6 +8,10 @@
 
 > 为什么要统一封装**request.js**
 
+### 参考
+
+> https://caijiao.org/axios/response/global-error.html
+
 ### axios 为什么要统一封装请求（request.js）
 
 简单说：**不封装 axios，项目会乱、难维护、易出错；统一封装成 request.js，是前端项目的「标准最佳实践」，能让所有接口请求统一管理、统一处理。**
