@@ -260,6 +260,112 @@ export default {
 3. **接口统一管理，后期改地址超级方便**
 4. **页面代码非常干净**
 
+
+
+
+
+***
+
+## [async/await用法](https://www.runoob.com/vue3/vue3-ajax-axios.html)
+
+###  简单介绍
+
+`async/await` 是一种“等待 Promise 完成”的语法，让异步代码更像同步代码、更容易维护。
+
+### 最关键区别
+
+你把它们想成：
+
+| 东西  | 作用                 |
+| ----- | -------------------- |
+| axios | 去干活（发请求）     |
+| await | 等干活结束           |
+| async | 允许函数里使用 await |
+
+#### 现实世界类比
+
+比如你点外卖：
+
+**axios**
+
+相当于：
+
+> 你下单了
+
+```
+axios.get(...)
+```
+
+已经开始请求。
+
+**await**
+
+相当于：
+
+> 你坐着等外卖送到
+
+```
+await axios.get(...)
+```
+
+**async**
+
+相当于：
+
+> “这个房间允许等外卖”
+
+因为 `await` 只能在 `async` 函数里。
+
+
+
+### 代码示例
+
+#### 使用async/await请求示例
+
+```js
+async function getUser() {
+  try {
+    const response = await axios.get('/user?ID=12345');
+    console.log(response);
+  } catch (error) {
+    console.error(error);
+  }
+}
+```
+
+#### 不加async/await请求示例
+
+> 不加async/await 代码很凌乱  回调地狱, 只能 **then**输出成功结果  **catch** 输出失败结果
+
+```php
+axios.get('/user', {
+    params: {
+      ID: 12345
+    }
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
+  .finally(function () {
+    // 总是执行
+  });
+```
+
+### 二者区别
+
+
+
+
+
+
+
+***
+
+
+
 ## 疑问补充
 
 ### [`@` 到底是什么意思？](https://cli.vuejs.org/zh/guide/html-and-static-assets.html)
