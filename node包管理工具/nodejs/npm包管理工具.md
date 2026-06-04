@@ -16,7 +16,7 @@ npm包管理工具 类比于python 的 pip包管理工具
 | 安装全部依赖 |     npm i     |       yarn       |   pnpm install   |
 |   运行脚本   |  npm run xxx  |     yarn xxx     |     pnpm xxx     |
 
-### npm
+### npm(不推荐)
 
 **npm**：Node.js**自带**，最老牌，兼容性最强
 
@@ -38,7 +38,7 @@ npm config set registry https://registry.npmmirror.com
 
 
 
-### yarn
+### yarn(不推荐)
 
 优点：早期比 npm 稳、锁版本严格
 
