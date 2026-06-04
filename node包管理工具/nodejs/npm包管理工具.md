@@ -16,47 +16,7 @@ npm包管理工具 类比于python 的 pip包管理工具
 | 安装全部依赖 |     npm i     |       yarn       |   pnpm install   |
 |   运行脚本   |  npm run xxx  |     yarn xxx     |     pnpm xxx     |
 
-### npm(不推荐)
-
-**npm**：Node.js**自带**，最老牌，兼容性最强
-
-缺点：速度慢、占用磁盘大、依赖冗余
-
-#### 安装
-
-```php
-# 1. npm 自带，无需安装
-node -v && npm -v
-```
-
-#### 镜像加速
-
-```bash
-# npm
-npm config set registry https://registry.npmmirror.com
-```
-
-
-
-### yarn(不推荐)
-
-优点：早期比 npm 稳、锁版本严格
-
-缺点：**现在过时**，生态慢慢偏向 pnpm
-
-#### 安装
-
-```bash
-# 2. 安装 yarn
-npm i yarn -g
-```
-
-#### 镜像加速
-
-```bash
-# yarn
-yarn config set registry https://registry.npmmirror.com
-```
+---
 
 
 
@@ -88,17 +48,75 @@ npm i pnpm -g
 pnpm config set registry https://registry.npmmirror.com
 ```
 
+
+
+
+
+---
+
+
+
+### npm(不推荐)
+
+**npm**：Node.js**自带**，最老牌，兼容性最强
+
+缺点：速度慢、占用磁盘大、依赖冗余
+
+#### 安装
+
+```php
+# 1. npm 自带，无需安装
+node -v && npm -v
+```
+
+#### 镜像加速
+
+```bash
+# npm
+npm config set registry https://registry.npmmirror.com
+```
+
+---
+
+
+
+### yarn(不推荐)
+
+优点：早期比 npm 稳、锁版本严格
+
+缺点：**现在过时**，生态慢慢偏向 pnpm
+
+#### 安装
+
+```bash
+# 2. 安装 yarn
+npm i yarn -g
+```
+
+#### 镜像加速
+
+```bash
+# yarn
+yarn config set registry https://registry.npmmirror.com
+```
+
+
+
+
+
+
+
 ## 疑问补充
 
-### npm /yarn/pnpm  初始化的包能不能通用
+### npm /yarn/pnpm(推荐)  初始化的包能不能通用
 
-# 结论：**绝大部分通用，但是有坑**
+####  结论：**绝大部分通用，但是有坑**
 
-## 1. 包源码完全通用
+#### 1. 包源码完全通用
 
 同一个 npm 包，**npm /yarn/pnpm 装出来代码一模一样**，写法、导入、用法全都通用。
 
-## 2. 不能直接混用的地方（重点）
+#### 2. 不能直接混用的地方（重点）
 
 1. **node_modules 结构不一样**
 
@@ -133,7 +151,7 @@ pnpm config set registry https://registry.npmmirror.com
    - `install / uninstall / run dev` 基本一样
    - 少数原生依赖、二进制包**可能装完不兼容**，最好清缓存重装
 
-## 3. 最简切换规则
+####  3. 最简切换规则
 
 - 从 npm 切 pnpm：
 
@@ -177,6 +195,7 @@ pnpm config set registry https://registry.npmmirror.com
   npm install
   ```
 
-## 4. 一句话总结
+#### 4. 一句话总结
 
 **代码通用，目录不通用，锁文件不通用，切换必须删包重安装。**
+
