@@ -153,3 +153,28 @@ uni-app H5 **默认是 hash 路由模式**（Vue-Router 默认规则）：
 
 - hash：`http://localhost:5173/#/demo/demo01` ✅ 刷新不 404，不用改服务
 - history：`http://localhost:5173/demo/demo01` 无 #，但直接输地址刷新会 404
+
+#### 补充:page/index/index.vue  样式 会影响   demo/demo01.vue
+
+[官方组件作用域css文档](https://cn.vuejs.org/api/sfc-css-features#scoped-css)
+
+为什么 `index.vue` 的样式会污染 `demo01.vue`？
+
+因为你写的样式是 **全局样式**，不是**组件私有样式**！
+
+看这个关键区别：
+
+```vue
+<style>
+/* 没有 scoped → 全局样式！所有页面所有组件都生效！ */
+</style>
+
+<style scoped>
+/* 有 scoped → 只对当前页面生效，不污染其他页面！ */
+</style>
+```
+
+总结
+
+1. **`<style>`** → 全局样式，**所有页面共享**（会互相污染）
+2. **`<style scoped>`** → 私有样式，**只当前页面生效**（不会污染别人）
