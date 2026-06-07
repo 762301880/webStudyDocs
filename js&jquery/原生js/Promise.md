@@ -104,7 +104,7 @@ const request = (options) => {
     uni.request({
       url: baseURL + url,
       data,
-      method,
+      method: method.toUpperCase(), // 统一大写,
       header: headers,
       timeout,
 
