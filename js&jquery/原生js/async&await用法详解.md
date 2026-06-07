@@ -1,3 +1,11 @@
+## 资料
+
+| 名称         | 地址                                                         |
+| ------------ | ------------------------------------------------------------ |
+| **`async `** | [link](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/async_function) |
+
+
+
 ## 先搞懂核心：为什么要有 async/await？
 
 网络请求（`get/post`）是**异步操作**：

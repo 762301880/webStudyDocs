@@ -1,3 +1,9 @@
+## 资料
+
+| 名称            | 地址                                                         |
+| --------------- | ------------------------------------------------------------ |
+| Promise官方文档 | [link](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise) |
+
 
 
 ## 原生代码示例
