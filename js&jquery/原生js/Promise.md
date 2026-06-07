@@ -78,7 +78,7 @@ const timeout = 10000 // 超时 10 秒
 
 // 统一请求函数
 const request = (options) => {
-  // 1. 解构参数
+  // 1. 解构参数(options 赋值为多个变量)
   const { url, data = {}, method = 'GET', showLoading = true, header = {} } = options
 
   // 2. 全局 Loading
@@ -171,6 +171,56 @@ export const del = (url, data, opts = {}) => {
 
 export default request
 ```
+
+### 疑问点补充
+
+#### uni.request请求为什么data method没赋值
+
+因为变量名 和 对象的 key 名字一模一样，所以可以简写！
+
+代码里的写法
+
+```js
+uni.request({
+  url: baseURL + url,
+  data,    // 👈 这里没写 =
+  method,  // 👈 这里也没写 =
+  header: headers,
+  timeout,
+})
+```
+
+等价于完整写法（你一看就懂）
+
+```js
+uni.request({
+  url: baseURL + url,
+  data: data,    // 完整写法
+  method: method,// 完整写法
+  header: headers,
+  timeout: timeout,
+});
+```
+
+### 为什么可以不写 `data: data`？
+
+因为 JS 有一个规则：
+
+**当对象的 key 名字 和 变量名 完全一样时，可以只写一个！**
+
+```js
+const a = 100;
+const obj = { a }; 
+// 等价于 { a: a }
+```
+
+```js
+const name = "小明";
+const obj = { name };
+// 等价于 { name: name }
+```
+
+
 
 ### 一、先搞懂核心前提
 
