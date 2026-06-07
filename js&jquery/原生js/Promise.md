@@ -57,7 +57,23 @@ run(); // 调用函数，Promise 才会执行
 
 ```js
 //以下代码为什么要用pomise   // utils/request.js
-const baseURL = 'https://api.xxx.com' // 你的后端接口地址
+
+// 获取环境标识
+const env = import.meta.env.VITE_APP_ENV
+
+// 定义 baseUrl（在外面定义，if 里只赋值）
+let baseUrl
+
+// 判断环境
+if (env === 'local') {
+  // 本地环境
+  baseUrl='https://api.xxx.com'
+} else {
+  // 生产环境
+  baseUrl = 'https://api.xxx.com'
+}
+
+
 const timeout = 10000 // 超时 10 秒
 
 // 统一请求函数
