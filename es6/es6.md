@@ -122,9 +122,9 @@ p.sayHi(); // 输出：Hi, I'm 赵六
 2. 核心特性包括 let/const、箭头函数、模板字符串、解构赋值、Class 等，解决了传统 JS 的诸多痛点；
 3. ES6 是现代 JavaScript 开发的基础，学习前端框架（React/Vue）前必须掌握。
 
-#  数组
+## 数组
 
-## 合并数组
+### 合并数组
 
 ```js
 const arr1 = [1, 2, 3];
@@ -152,3 +152,36 @@ const arr1 = [1, 2, 3];
 [1, 2, 3, 4, 5, 6, 7, 8]
 ```
 
+## 方法
+
+[官方文档参考资料](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Method_definitions)
+
+### 方法简写
+
+如下代码：
+
+```js
+var obj = {
+  foo: function () {
+    /* code */
+  },
+  bar: function () {
+    /* code */
+  },
+};
+```
+
+现可被简写为：
+
+```js
+var obj = {
+  foo() {
+    /* code */
+  },
+  bar() {
+    /* code */
+  },
+};
+```
+
+简写语法使用具名函数而不是匿名函数（如…`foo: function() {}`…）。具名函数可以从函数体调用（这对匿名函数是不可能的，因为没有标识符可以引用）。详细信息，请参阅[`function`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/function#examples)。
