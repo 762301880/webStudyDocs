@@ -50,6 +50,20 @@ pnpm config set registry https://registry.npmmirror.com
 
 
 
+####  pnpm升级
+
+##### 添加环境变量
+
+```bash
+C:\Users\yaoliuyang\AppData\Local\pnpm\bin  # 一般在用户目录下的AppData\Local中
+```
+
+##### 安装完成后升级
+
+```bash
+pnpm self-update
+```
+
 
 
 ---
