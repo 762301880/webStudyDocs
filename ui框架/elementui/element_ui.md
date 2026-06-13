@@ -5,79 +5,121 @@
 | elementui官网   vue2 | [vue2.x](https://element.eleme.cn/#/zh-CN)                   |
 | element-plus    vue3 | [vue3.x](https://element-plus.org/zh-CN/)  [install](https://element-plus.org/zh-CN/guide/installation)  [看这个-组件](https://element-plus.org/zh-CN/component/form) |
 
-## [安装](https://element.eleme.cn/#/zh-CN/component/installation)
+## [安装-element-plus](https://element-plus.org/zh-CN/guide/installation)
 
-### npm 安装 支持vue2(不推荐已过时)
+### pnpm 安装
 
-推荐使用 npm 的方式安装，它能更好地和 [webpack](https://webpack.js.org/) 打包工具配合使用。
+```bash
+pnpm install element-plus
+```
+
+### 一、核心行为
+
+1. **下载安装**
+
+   从 npm 镜像拉取 `element-plus` 正式包，以及它**所有依赖**，存入项目 `node_modules`（pnpm 硬链接模式，占用体积很小）。
+
+2. **修改配置文件**
+
+   - `package.json`：新增 `"element-plus": "^版本号"` 到 **dependencies**（生产依赖，项目运行必需）
+   - `pnpm-lock.yaml`：自动生成 / 更新锁文件，锁定所有包版本，保证团队安装一致性。
+
+### 二、目录变化
+
+- 项目根目录 `node_modules` 出现 `element-plus` 文件夹
+- 可直接在代码里 **导入使用** 组件、样式、图标等
+
+##  快速开始
+
+### [按需导入element-plus](https://element-plus.org/zh-CN/guide/quickstart#%E6%8C%89%E9%9C%80%E5%AF%BC%E5%85%A5)
+
+然后把下列代码插入到你的 `Vite` 或 `Webpack` 的配置文件中
+
+#### vite（vite.config.ts）
+
+> `vite.config.ts`
 
 ```shell
-npm i element-ui -S    # 默认支持vue2不支持vue3
+import { defineConfig } from 'vite'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
+export default defineConfig({
+  // ...
+  plugins: [
+    // ...
+    AutoImport({
+      resolvers: [ElementPlusResolver()],
+    }),
+    Components({
+      resolvers: [ElementPlusResolver()],
+    }),
+  ],
+})
 ```
 
-### 命令解释
+#### 按需导入含义解析
 
- **`npm i element-ui -S`**
+这是 **Vite + Element Plus 自动按需导入** 的配置，不用手动写 `import`，开箱即用组件和 API。
 
-> `npm`：Node 包管理工具（安装依赖必备）推荐pnpm
->
-> `i`：是 `install` 的**简写**，意思就是「安装」
->
-> `element-ui`：要安装的**包名**（饿了么团队开发的 Vue UI 组件库）
->
-> `-S`：安装参数
+逐段解释
 
-**`-S` 参数到底是什么？**
+1. **依赖包作用**
+   - `unplugin-auto-import/vite`：**自动导入函数 / API**（比如 `ElMessage`、`ElMessageBox`）
+   - `unplugin-vue-components/vite`：**自动导入 Vue 组件**（比如 `<el-button>`、`<el-input>`）
+   - `ElementPlusResolver`：专属解析器，告诉插件要识别 Element Plus 的内容
+2. 配置含义
 
-`-S` = `--save` 的**简写**
+   ```js
+AutoImport({
+  resolvers: [ElementPlusResolver()],
+})
+   ```
 
-**作用：**
+自动识别 Element Plus 的**方法、全局 API**，代码里直接调用，不用手动 `import`。
 
-把安装的包 **写入 `package.json` 的 `dependencies` 字段**
-
-→ 也就是**生产环境依赖**（项目上线后也需要用到）
-
-**对比记忆（最常用 3 个）**
-
-|  参数  |     全称     |     写入位置      |                   使用场景                    |
-| :----: | :----------: | :---------------: | :-------------------------------------------: |
-|  `-S`  |   `--save`   |  `dependencies`   | **项目运行必须**（element-ui、vue、axios 等） |
-|  `-D`  | `--save-dev` | `devDependencies` |    **开发时用**（webpack、babel、sass 等）    |
-| 无参数 |      -       |      不写入       |               临时安装，不记录                |
-
-**完整等价命令**
-
-下面这 3 条命令**效果完全一样**：(推荐pnpm)
-
-```shell
-npm i element-ui -S
-npm install element-ui --save
-npm install element-ui
+```js
+Components({
+  resolvers: [ElementPlusResolver()],
+})
 ```
 
-**新版 npm 已经默认 -S**，所以现在直接写 `npm i element-ui` 就够了。
+模板里直接写 `<el-xxx>` 组件，插件自动帮你引入对应组件和样式。
 
-**安装后会发生什么？**
+**实际效果（对比传统写法）**
 
-1. 在项目 `node_modules/` 里下载 `element-ui` 代码
-2. 在 `package.json` 里自动添加：
+❶ 以前（手动引入）
 
-```json
-"dependencies": {
-  "element-ui": "^2.15.14"  // 版本号自动生成
-}
+```vue
+<template>
+  <el-button @click="showMsg">按钮</el-button>
+</template>
+
+<script setup>
+// 必须手动导入
+import { ElButton, ElMessage } from 'element-plus'
+const showMsg = () => ElMessage.success('成功')
+</script>
 ```
 
-**总结**
+❷ 配完上面代码后（**零导入**）
 
-- `npm i element-ui` = 安装 Element UI
-- `-S` = 保存为**生产依赖**（新版 npm 可省略）
-- 日常开发直接用：`npm i element-ui` 即可
+直接写就行，完全不用 `import`：
 
-### npm 安装 支持vue3(推荐安装plus版本)
+```vue
+<template>
+  <el-button @click="showMsg">按钮</el-button>
+</template>
 
-```shell
-# vue3
-npm install element-plus --save
+<script setup>
+const showMsg = () => ElMessage.success('成功')
+</script>
 ```
+
+#### 额外优点
+
+1. **按需加载**：只打包你用到的组件 / 样式，减小打包体积
+2. **简化代码**：省去重复的导入语句
+3. 配合 Vite 热更新，开发体验更好
 
