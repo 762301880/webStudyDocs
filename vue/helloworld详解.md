@@ -1,4 +1,4 @@
-## [逻辑示例](https://www.runoob.com/try/try.php?filename=vue3-bc)
+## [逻辑示例  vue2](https://www.runoob.com/try/try.php?filename=vue3-bc)
 
 > 快捷键创建div  `div#hello-vue.demo` 
 >

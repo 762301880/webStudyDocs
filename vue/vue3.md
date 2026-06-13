@@ -2,6 +2,8 @@
 
 ##  [创建一个vue3项目](https://cn.vuejs.org/guide/quick-start.html)(不推荐)
 
+> 推荐 `npm create vite@latest`
+
 ```shell
 PS D:\Desktop> npm create vue@latest
 
