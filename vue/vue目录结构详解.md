@@ -189,16 +189,6 @@ my-vue-app/
 
 允许你在项目里用：
 
-js
-
-
-
-
-
-
-
-
-
 ```
 import vue from 'vue'
 ```

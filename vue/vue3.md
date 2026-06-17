@@ -347,7 +347,7 @@ npm create vite@latest
 </script>
 
 <!-- 3. 样式：写 CSS -->
-<style>
+<style scoped lang="scss">
   这里写样式
 </style>
 ```
