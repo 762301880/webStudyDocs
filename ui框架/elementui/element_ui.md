@@ -73,7 +73,7 @@ export default defineConfig({
 
    ```js
 AutoImport({
-  resolvers: [ElementPlusResolver()],
+    resolvers: [ElementPlusResolver()],
 })
    ```
 
@@ -123,3 +123,20 @@ const showMsg = () => ElMessage.success('成功')
 2. **简化代码**：省去重复的导入语句
 3. 配合 Vite 热更新，开发体验更好
 
+## [国际化中文配置](https://element-plus.org/zh-CN/guide/i18n)
+
+> 场景[paginate](https://element-plus.org/zh-CN/component/pagination) 分页配置会导致英文展示很不友好
+
+### 配置方案一 `App.vue`中全局注册中文配置
+
+```vue
+<template>
+  <el-config-provider :locale="zhCn">
+    <router-view />
+  </el-config-provider>
+</template>
+
+<script setup>
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
+</script>
+```
