@@ -5,4 +5,5 @@
 | 名称           | 地址                                                         |
 | -------------- | ------------------------------------------------------------ |
 | uview-puls官网 | [link](https://uview-plus.jiangruyi.com/)  [link](https://www.npmjs.com/package/uview-plus)  [github](https://github.com/ijry/uview-plus) |
+| uView2.0       | [link](https://www.uviewui.com/components/tabs.html)         |
 
