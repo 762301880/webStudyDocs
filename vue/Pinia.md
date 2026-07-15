@@ -1,8 +1,9 @@
 ## 资料
 
-| 名称       | 地址                                                    |
-| ---------- | ------------------------------------------------------- |
-| pinia 官网 | [link](https://pinia.vuejs.org/zh/getting-started.html) |
+| 名称           | 地址                                                    |
+| -------------- | ------------------------------------------------------- |
+| pinia 官网     | [link](https://pinia.vuejs.org/zh/getting-started.html) |
+| 菜鸟教程-pinia | [link](https://www.runoob.com/vue3/vue3-pinia.html)     |
 
 ## 简介
 
