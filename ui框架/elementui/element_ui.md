@@ -13,7 +13,7 @@
 pnpm install element-plus
 ```
 
-### 一、核心行为
+### 核心行为
 
 1. **下载安装**
 
@@ -24,7 +24,7 @@ pnpm install element-plus
    - `package.json`：新增 `"element-plus": "^版本号"` 到 **dependencies**（生产依赖，项目运行必需）
    - `pnpm-lock.yaml`：自动生成 / 更新锁文件，锁定所有包版本，保证团队安装一致性。
 
-### 二、目录变化
+### 目录变化
 
 - 项目根目录 `node_modules` 出现 `element-plus` 文件夹
 - 可直接在代码里 **导入使用** 组件、样式、图标等
