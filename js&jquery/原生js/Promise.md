@@ -1,8 +1,9 @@
 ## 资料
 
-| 名称            | 地址                                                         |
-| --------------- | ------------------------------------------------------------ |
-| Promise官方文档 | [link](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise) |
+| 名称                        | 地址                                                         |
+| --------------------------- | ------------------------------------------------------------ |
+| Promise官方文档             | [link](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise) |
+| 菜鸟教程-JavaScript Promise | [link](https://www.runoob.com/js/js-promise.html)            |
 
 
 
