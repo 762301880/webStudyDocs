@@ -490,3 +490,73 @@ test()
 ```
 
 运行后就能看到：**异步数据成功被拿到**。
+
+## 核心一句话:Promise到底是干嘛的
+
+**Promise 本身不能让代码变成异步，它是用来「更好地管理异步」，解决旧回调方式的痛点。**
+
+### 先分清两件事
+
+- **异步操作**：定时器、网络请求、读取文件。这些天生就是异步，跟 Promise 没关系。
+- **Promise**：是一种**管理异步结果的工具**。
+
+> 不是 Promise 制造了异步； 是异步早就存在，Promise 给了一套更优雅的写法来处理它。
+
+### 以前不用 Promise，怎么处理异步？→ 回调
+
+```js
+// 异步任务
+setTimeout(() => {
+  console.log("1秒到了");
+}, 1000);
+```
+
+如果要：等 1 秒 → 再等 1 秒 → 再等 1 秒，就要嵌套：
+
+```js
+setTimeout(() => {
+  setTimeout(() => {
+    setTimeout(() => {
+      console.log("完成");
+    }, 1000);
+  }, 1000);
+}, 1000);
+```
+
+越套越深 → **回调地狱**，不好读、不好捕获错误。
+
+### 用 Promise 包装同一个异步任务
+
+```js
+function waitOneSecond() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, 1000);
+  });
+}
+
+// 链式调用，不再向下嵌套
+waitOneSecond()
+.then(() => waitOneSecond())
+.then(() => waitOneSecond())
+.then(() => {
+  console.log("完成");
+})
+```
+
+代码是**横向往右延伸**，而不是往下钻。
+
+还能升级成 `async/await`（Promise 的语法糖），看起来几乎像同步代码：
+
+### Promise 核心作用总结
+
+1. **把异步任务打包成一个对象**
+2. 通过 `resolve/reject` 标记任务成功 / 失败
+3. 使用 `.then()` / `.catch()` 接收结果和错误
+4. **链式调用，解决回调地狱**
+5. 作为 `async / await` 的基础
+
+一句话大白话：
+
+> 异步还是那个异步，Promise 只是换了一套更舒服的方式去**等待和拿到异步的结果**。
