@@ -208,50 +208,7 @@ export function addUser(data) {
 }
 ```
 
-##### 三、第二步：在 Vue 模板（.vue 文件）中使用
 
-1. Vue 3 + script setup 写法（最常用）
-
-   ```vue
-<template>
-  <div>
-    <button @click="getList">获取用户列表</button>
-  </div>
-</template>
-
-<script setup>
-import { getUserList } from '@/api/user'
-import { ElMessage } from 'element-plus'
-
-// 调用接口
-async function getList() {
-  try {
-    const res = await getUserList({ page: 1, size: 10 })
-    console.log('成功：', res)
-    ElMessage.success('获取成功')
-  } catch (err) {
-    console.log('失败：', err)
-  }
-}
-</script>
-   ```
-
-2. Vue 2 写法
-
-```vue
-<script>
-import { getUserList } from '@/api/user'
-
-export default {
-  methods: {
-    async getList() {
-      const res = await getUserList({ page: 1 })
-      console.log(res)
-    }
-  }
-}
-</script>
-```
 
 ### 最关键的好处
 
@@ -259,10 +216,6 @@ export default {
 2. **不用处理 401、500、超时**
 3. **接口统一管理，后期改地址超级方便**
 4. **页面代码非常干净**
-
-
-
-
 
 ***
 
@@ -428,5 +381,145 @@ import request from '@/utils/request'
 
 // 引入组件
 import Hello from '@/components/Hello'
+```
+
+## 真实封装参考(生产环境可用)
+
+src\utils\request.js
+
+```js
+import axios from 'axios'
+import {ElMessage} from 'element-plus'
+import TokenUtil from '../utils/token'
+import router from '@/router'
+import api from "@/api"
+import {CODE} from "@/constants/codeEnum";
+
+
+
+/*
+  访问地址
+  默认配置→自定义实例默认值:https://www.axios-http.cn/docs/config_defaults
+ */
+const service = axios.create({
+    baseURL: import.meta.env.VITE_API_URL,
+    timeout: 20000 //timeout(超时默认值)
+})
+
+/**
+ * 是否正在刷新
+ */
+let isRefreshing = false
+
+/**
+ * 等待队列
+ */
+let requests = []
+
+/**
+ * 请求拦截器-在发送之前做些什么
+ * 拦截器→拦截器 https://www.axios-http.cn/docs/interceptors
+ */
+// 意思：发送请求之前，先执行这里！
+service.interceptors.request.use(config => {
+
+    // 1. 从本地存储里拿出 token（用户登录后的凭证）
+    const token = TokenUtil.getAccessToken()
+
+    // 2. 如果有 token（用户已登录）
+    if (token) {
+        // 3. 把 token 放进请求头里，带给后端
+        config.headers.Authorization = `Bearer ${token}`
+    }
+
+    // 4. 放行，把请求发出去
+    return config
+})
+
+/**
+ * 响应拦截器-在拿到数据后做什么
+ * 拦截器→拦截器 https://www.axios-http.cn/docs/interceptors
+ */
+service.interceptors.response.use(
+    async response => {
+
+        const config = response.config
+        /**
+         * token过期
+         */
+        if (response.data.code === CODE.UNAUTHORIZED) {
+            // 如果是刷新 token 接口自己返回 401 → 彻底过期
+            if (config.url.includes('/api/admin/refresh')) {
+                localStorage.clear()
+                ElMessage.error('登录已过期，请重新登录')
+                router.push('/login')
+                return Promise.reject(error)
+            }
+
+
+            // 如果正在刷新，把当前请求放进队列
+            if (isRefreshing) {
+                return new Promise(resolve => {
+                    // 往等待队列(最上面定义的 let requests = [])里推入一个回调函数
+                    requests.push((newToken) => {
+                        // 给当前请求换上新 Token
+                        config.headers.Authorization = `Bearer ${newToken}`
+                        // 重新发起该请求，并把结果返回给外层 Promise
+                        resolve(service(config))
+                    })
+                })
+            }
+
+            // 开始刷新 token
+            isRefreshing = true
+
+
+            try {
+                // 调用刷新接口
+                const res = await api.auth.tokenRefresh()
+                const newToken = res.data.access_token
+                TokenUtil.setAccessToken(newToken) //保存新token
+                /**
+                 * 重试队列里的所有请求cb==callback回调
+                 * cb 可用是任意值 就是es6的函数语法这里不要混淆
+                 * 函数→箭头函数→单参数函数
+                 */
+                requests.forEach(cb => cb(newToken))
+                requests = [] //赋值清空队列中的数组
+
+                // 重试当前失败的请求
+                return service(config)
+
+            } catch (e) {
+                // 刷新失败 → 登出
+                localStorage.clear()
+                ElMessage.error('登录已过期，请重新登录')
+                router.push('/login')
+                return Promise.reject(e)
+            } finally {
+                // 刷新结束
+                isRefreshing = false
+            }
+
+        }
+
+        return response.data
+    },
+
+    async error => {
+
+        const {response, config} = error
+        // 没有response
+        if (!response) {
+            ElMessage.error('网络异常')
+            return Promise.reject(error)
+        }
+        // 其他错误
+        //ElMessage.error(response.data.msg || '请求失败')
+        return Promise.reject(error)
+    }
+)
+
+export default service
 ```
 
