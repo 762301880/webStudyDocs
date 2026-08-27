@@ -481,8 +481,8 @@ service.interceptors.response.use(
                 TokenUtil.setAccessToken(newToken) //保存新token
                 /**
                  * 重试队列里的所有请求cb==callback回调
-                 * cb 可用是任意值 就是es6的函数语法这里不要混淆
-                 * 函数→箭头函数→单参数函数
+                 * forEach数组函数
+                 * cb 可用是任意值 就是es6的函数语法这里不要混淆(函数→箭头函数→单参数函数)
                  */
                 requests.forEach(cb => cb(newToken))
                 requests = [] //赋值清空队列中的数组
