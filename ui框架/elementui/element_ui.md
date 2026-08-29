@@ -3,7 +3,7 @@
 | 名称                 | 地址                                                         |
 | -------------------- | ------------------------------------------------------------ |
 | elementui官网   vue2 | [vue2.x](https://element.eleme.cn/#/zh-CN)                   |
-| element-plus    vue3 | [vue3.x](https://element-plus.org/zh-CN/)  [install](https://element-plus.org/zh-CN/guide/installation)  [看这个-组件](https://element-plus.org/zh-CN/component/form) |
+| element-plus    vue3 | [vue3.x](https://element-plus.org/zh-CN/)   [组件](https://element-plus.org/zh-CN/component/form) |
 
 ## [安装-element-plus](https://element-plus.org/zh-CN/guide/installation)
 
@@ -37,7 +37,7 @@ pnpm install element-plus
 
 #### vite（vite.config.ts）
 
-> `vite.config.ts`
+`vite.config.ts`
 
 ```shell
 import { defineConfig } from 'vite'
