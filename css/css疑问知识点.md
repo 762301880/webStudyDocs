@@ -1,6 +1,6 @@
-# px与rpx的区别
+## px与rpx的区别
 
-## 结论
+### 结论
 
 **rpx** 小程序与uniapp专用
 
@@ -67,4 +67,100 @@ CSS px、rpx 区别 + 英文含义 + 代码示例
 2. **rpx = responsive pixel 响应式像素**（自适应）
 3. `750rpx = 屏幕总宽度`
 4. 小程序用 **rpx**，普通网页用 **px**
+
+---
+
+## :hover(伪类)  是什么意思
+
+`:hover` 是 **CSS 伪类**，作用：**当鼠标悬浮（悬停）在这个元素上的时候，才应用里面写的样式**。
+
+> 伪类不是真实的 class 类名，前面带冒号 `:`，用来描述元素的**特定状态**。
+>
+> 解释  **伪类 `:`**：描述**元素的状态**（`:hover` 鼠标悬浮、`:active`点击），**元素本身真实存在**
+
+**简单例子**
+
+```css
+a {
+  text-decoration: none;
+  color: #333;
+}
+/* 鼠标放上去的时候触发 */
+a:hover {
+  color: #409eff; /* 悬浮变蓝色 */
+}
+```
+
+```html
+<a href="#">点我测试</a>
+```
+
+效果：
+
+- 默认：文字灰色，无下划线
+- ✅ 鼠标移上去：文字变成蓝色
+- 鼠标移开：恢复原样
+
+---
+
+## ::(双冒号,伪元素)
+
+ 伪元素 `::`**：创建**不在 HTML 里的虚拟元素**，相当于凭空生成一个盒子，插入到目标元素内部，**DOM 里看不见这个标签**
+
+> 规范写法是双冒号 `::`，用来和伪类 `:` 区分。旧浏览器支持单冒号 `:`，现在推荐写 `::`
+
+### 最常用的 4 个伪元素
+
+1. `::before`：在目标元素**内部最前面**插入虚拟内容
+2. `::after`：在目标元素**内部最后面**插入虚拟内容（**开发最常用！**）
+3. `::first-line`：选中元素第一行文字
+4. `::first-letter`：选中第一个字符
+
+**案例**
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>伪元素 ::before 演示</title>
+    <style>
+        .title {
+            font-size: 26px;
+            padding-left: 28px; /* 留出位置给前面的圆点 */
+            position: relative;
+            cursor: pointer;
+            color: #333;
+        }
+
+        /* ✅ ::before 伪元素：在文字【前面】生成一个圆形 */
+        .title::before {
+            content: ""; /* 空内容，用来画盒子，不用文字 */
+            width: 16px;
+            height: 16px;
+            background-color: #3b82f6;
+            border-radius: 50%; /* 变成圆形 */
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: all 0.3s ease; /* 动画过渡 */
+        }
+
+        /* 鼠标悬浮时，修改伪元素样式 */
+        .title:hover::before {
+            background-color: #ef4444;
+            width: 22px;
+            height: 22px;
+        }
+    </style>
+</head>
+<body>
+    <h2 class="title">我是标题，前面的圆点是伪元素生成的</h2>
+</body>
+</html>
+```
+
+
+
 
